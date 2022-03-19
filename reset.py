@@ -9,7 +9,7 @@ def reset(saves, render_distance):
 		keyboard.press_and_release('f3+f')
 	keyboard.press_and_release('escape, shift+tab, enter')
 	files = os.listdir(saves)
-	files_filtered = list(filter(lambda file: os.path.isdir(os.path.join(saves, file)) and not file.startswith('_'), files))
+	files_filtered = list(filter(lambda file: os.path.isdir(os.path.join(saves, file)) and file.startswith('RandomSpeedrun #'), files))
 	files_filtered.sort(key=lambda x: int(x[16:]))
 
 	to_move = len(files_filtered) - 4
