@@ -1,5 +1,6 @@
 # reset.py
-A single instance reset macro that (hopefully) works for every os. (If you use Mac or Linux please tell me if this works by messaging me on discord @pasta#3635)
+A single instance reset macro that (hopefully) works for every os. (If you use Mac or Linux please tell me if this works by messaging me on discord @pasta#3635)<br/>
+Moves old worlds, resets render distance. Worlds you don't want to be moved do not need an underscore added to the start of their name
 
 ## Setup
 For all platforms keyboard is required. It can be installed with `pip3 install keyboard`.<br/>
