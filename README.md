@@ -20,3 +20,6 @@ The hotkey which stops the macro. Same formatting as reset_hotkey.
 
 ### path
 The path to your .minecraft folder.
+
+### render_distance
+The render distance you play on.
