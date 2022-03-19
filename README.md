@@ -7,7 +7,7 @@ On windows pygetwindow is required in order to detect the title of the active wi
 Active window title detection has not been added for mac yet.<br/>
 On linux Xlib is required. It can be installed with `pip3 install python3-xlib`<br/>
 Also make sure that settings.json is in the same directory as reset.py and that each option is correct.<br/>
-You also need to have atum and fast reset installed for Minecraf, both of which can be found [here](https://www.minecraftspeedrunning.com/public-resources/mods).<br/>
+You also need to have atum and fast reset installed for Minecraft, both of which can be found [here](https://www.minecraftspeedrunning.com/public-resources/mods).<br/>
 Then just run reset.py and start resetting.
 
 ## Settings:
