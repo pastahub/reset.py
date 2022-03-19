@@ -1,5 +1,5 @@
 # reset.py
-A single instance reset macro that (hopefully) works for every os.
+A single instance reset macro that (hopefully) works for every os. (If you use Mac or Linux please tell me if this works by messaging me on discord @pasta#3635)
 
 To run, first make sure you have keyboard installed.
 You can install keyboard with `pip install keyboard`.
