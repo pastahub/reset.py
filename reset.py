@@ -1,18 +1,28 @@
-import json, os, sys, keyboard, shutil
+import json, keyboard, math, os, shutil, sys
 
-def reset(saves, render_distance):
+def reset(saves, render_distance, fov):
 	if not mc_open():
 		return
-	for i in range(32):
+	for i in range(30):
 		keyboard.press_and_release('shift+f3+f')
 	for i in range(render_distance - 2):
 		keyboard.press_and_release('f3+f')
+	# Currently does not work with the keyboard library, as arrow presses are treated as numpad presses which mincraft doesnt accept
+	#keyboard.press_and_release('escape')
+	#for i in range(4):
+	#	keyboard.press_and_release('shift+tab')
+	#keyboard.press_and_release('enter, tab')
+	#for i in range(151):
+	#	keyboard.press_and_release('left')
+	#for i in range(math.ceil((fov - 30) * 1.763)):
+	#	keyboard.press_and_release('right')
+	#keyboard.press_and_release('escape')
 	keyboard.press_and_release('escape, shift+tab, enter')
 	files = os.listdir(saves)
 	files_filtered = list(filter(lambda file: os.path.isdir(os.path.join(saves, file)) and file.startswith('RandomSpeedrun #'), files))
 	files_filtered.sort(key=lambda x: int(x[16:]))
 
-	to_move = len(files_filtered) - 4
+	to_move = len(files_filtered) - 5
 	if to_move < 1:
 		return
 
@@ -41,6 +51,7 @@ def mc_open():
 		return "Minecraft" in window.get_wm_name()
 
 if __name__ == "__main__":
+	os.chdir(sys.path[0])
 	settings_file = open('settings.json')
 
 	settings = json.load(settings_file)
@@ -56,5 +67,9 @@ if __name__ == "__main__":
 
 	render_distance = settings['render_distance']
 
-	keyboard.add_hotkey(settings['reset_hotkey'], lambda: reset(saves, render_distance))
-	keyboard.wait(settings['exit_hotkey'])
+	fov = settings['fov']
+
+	keyboard.add_hotkey(settings['reset_hotkey'], lambda: reset(saves, render_distance, fov))
+	print("ready")
+	keyboard.wait(settings['exit_hotkey']);
+	exit()
