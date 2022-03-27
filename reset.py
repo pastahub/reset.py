@@ -1,7 +1,7 @@
 import json, keyboard, math, os, shutil, sys
 
 
-def reset(saves, render_distance, fov):
+def reset(saves, render_distance):
     if not mc_open():
         return
     for i in range(30):
@@ -20,8 +20,7 @@ def reset(saves, render_distance, fov):
     # keyboard.press_and_release('escape')
     keyboard.press_and_release('escape, shift+tab, enter')
     files = os.listdir(saves)
-    files_filtered = list(
-        filter(lambda file: os.path.isdir(os.path.join(saves, file)) and file.startswith('RandomSpeedrun #'), files))
+    files_filtered = list(filter(lambda file: os.path.isdir(os.path.join(saves, file)) and file.startswith('RandomSpeedrun #'), files))
     files_filtered.sort(key=lambda x: int(x[16:]))
 
     to_move = len(files_filtered) - 5
@@ -54,7 +53,7 @@ def mc_open():
         return "Minecraft" in window.get_wm_name()
 
 
-if __name__ == "__main__":
+def main():
     os.chdir(sys.path[0])
     settings_file = open('settings.json')
 
@@ -73,7 +72,11 @@ if __name__ == "__main__":
 
     # fov = settings['fov']
 
-    keyboard.add_hotkey(settings['reset_hotkey'], lambda: reset(saves, render_distance, fov))
+    keyboard.add_hotkey(settings['reset_hotkey'], lambda: reset(saves, render_distance))
     print("ready")
     keyboard.wait(settings['exit_hotkey'])
     exit()
+
+
+if __name__ == "__main__":
+    main()
