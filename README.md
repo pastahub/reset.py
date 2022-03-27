@@ -11,6 +11,9 @@ Also make sure that settings.json is in the same directory as reset.py and that 
 You also need to have atum and fast reset installed for Minecraft, both of which can be found [here](https://www.minecraftspeedrunning.com/public-resources/mods).<br/>
 Then just run reset.py and start resetting.
 
+## cleanup.py
+Due to some issues with fast reset, not every world is able to be moved. Once you have finished a session close minecraft and run the cleanup.py script to remove any of these worlds
+
 ## Settings:
 
 ### reset_hotkey
